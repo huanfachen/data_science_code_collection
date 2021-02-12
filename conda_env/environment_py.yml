@@ -1,0 +1,101 @@
+# OVERVIEW
+# This YAML script will attempt to install a Python virtual environment able to
+# support the requirements of a Spatial Data Science or Geocomputation programme.
+# This YAML script has been improved using http://www.yamllint.com/ to avoid potential yaml.scanner.ScannerError 
+# on Windows 10.
+#
+# INSTALLATION
+# Note that, in the example commands below, you will need to replace {name} by the name 
+# value specified as a configuration parameter below (the first line that does *not* 
+# start with a hash (#). All the commands below should be run from the Terminal.
+#
+#######################
+# NOTE: in the below, wherever you see '{name}'
+# you should replace that with the name of the 
+# environment you are installing (e.g. `sds2020`).
+#######################
+#
+# If you've already installed this environment before:
+#   conda remove --name {name} --all
+#
+# To install/reinstall the environment:
+#   conda-env create -f environment.yml
+#
+# To install/update individual libraries you usually want to force the conda-forge channel:
+#   conda install -c conda-forge osmnx
+#
+# A nice way to set the display name for the environment after activating the env:
+#   conda activate {name}
+#   python -m ipykernel install --name {name} --display-name "Friendly Name"
+# To tidy up environments: 
+#   jupyter kernelspec list
+#   jupyter kernelspec uninstall unwanted-kernel 
+#
+# LAUNCH
+# You can launch the 'old' notebook server by simply running:
+#   jupyter notebook
+# The more modern jupyter lab only seems to be launchable from within an environment:
+#   conda activate {name}
+#   jupyter lab
+#
+# CONFIGURATION PARAMETERS
+--- 
+channels: 
+  - conda-forge
+  - defaults
+dependencies: 
+  - pip
+  - black=20.8b1
+  - bokeh=2.2.1
+  - cmake
+  - contextily=1.0.0
+  - cython
+  - feather-format
+  - geopandas=0.8.1
+  - geopy=2.0.0
+  - hdbscan
+  - ipyleaflet
+  - ipympl
+  - ipyparallel
+  - ipywidgets
+  - jupyterlab_code_formatter
+  - legendgram=0.0.3
+  - mkl-service
+  - mysql-connector-python
+  - nbdime
+  - networkx
+  - osmnx
+  - nltk=3.4.*
+  - palettable=3.3.0
+  - pandana=0.5.1
+  - pointpats=2.2.0
+  - polyline=1.4.0
+  - psycopg2
+  - pygeos=0.8
+  - pykrige=1.5.1
+  - pysal=2.3.0
+  - python-language-server
+  - qgrid
+  - rasterio
+  - rasterstats
+  - scikit-learn
+  - scikit-image
+  - scipy
+  - seaborn
+  - spacy=2.3.*
+  - sqlalchemy
+  - statsmodels
+  - tabulate
+  - tzlocal
+  - xlrd
+  - xlsxwriter
+  - 
+    pip: 
+      - "git+http://github.com/kingsgeocomp/SOMPY#egg=sompy"
+      - smopy
+      - MulticoreTSNE
+      - scikit-posthocs
+      - wordcloud
+      - jupyter-lsp==0.9.2
+      - jupyterlab_gitplus
+name: sds2020
